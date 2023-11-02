@@ -40,6 +40,7 @@ def x1orazx2(a, b, c):
 def sumaKwadratów(a, b, c):
     global kwadra
     kwadra = ((b*b) / (a*a)) - ((2 * c) / a)
+    updateLabel3()
 
 def znaki():
     if x1multiplyx2 < 0:
@@ -53,6 +54,11 @@ def updateLabel1and2():
    label1.config(text=("x1 + x2 = ", x1addx2))
    label2.config(text=("x1 * x2 = ", x1multiplyx2))
    root.after(100, updateLabel1and2)
+
+def updateLabel3():
+   label3.config(text=("x1^2 + x2^2 = ", kwadra))
+   root.after(100, updateLabel3)
+
 
 label1= tk.Label(root, text = "Enter a", font=('Times', 16))
 label1.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
@@ -90,8 +96,10 @@ label2.grid(row=4, column=0, columnspan=4, padx=5, pady=5)
 button4 = tk.Button(root, text="Count", width=12, height=2, command=lambda: x1orazx2(a ,b, c))
 button4.grid(row=4, column=13, columnspan=4, padx=5, pady=5)
 
+label3 = tk.Label(root, text=("x1^2 + x2^2 = ", kwadra), font=('Times', 16))
+label3.grid(row=5, column=0, columnspan=4, padx=5, pady=5)
 
-
-
+button5 = tk.Button(root, text="Count", width=12, height=2, command=lambda: sumaKwadratów(a ,b, c))
+button5.grid(row=5, column=13, columnspan=4, padx=5, pady=5)
 
 root.mainloop()
