@@ -8,11 +8,6 @@ x1addx2 = 0
 x1multiplyx2 = 0
 kwadra = 0
 
-def updateLabel1and2():
-   label1.config(text=x1addx2)
-   label2.config(text=x1multiplyx2)
-   root.after(100, update)
-
 def PrzyjmijA():
     global a
     a = entry1.get()
@@ -40,6 +35,7 @@ def x1orazx2(a, b, c):
     global x1multiplyx2
     x1addx2 = (-1 * b) / a
     x1multiplyx2 = c / a
+    updateLabel1and2()
 
 def sumaKwadratów(a, b, c):
     global kwadra
@@ -53,8 +49,10 @@ def znaki():
     else:
         print("Numbers are negative")
 
-def update():
-    pass
+def updateLabel1and2():
+   label1.config(text=("x1 + x2 = ", x1addx2))
+   label2.config(text=("x1 * x2 = ", x1multiplyx2))
+   root.after(100, updateLabel1and2)
 
 label1= tk.Label(root, text = "Enter a", font=('Times', 16))
 label1.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
@@ -86,7 +84,7 @@ button3.grid(row=2, column=13, columnspan=4, padx=5, pady=5)
 label1=tk.Label(root, text=("x1 + x2 = ", x1addx2), font=('Times', 16))
 label1.grid(row=3, column=0, columnspan=4, padx=5, pady=5)
 
-label2=tk.Label(root, text=("x1 + x2 = ", x1addx2), font=('Times', 16))
+label2=tk.Label(root, text=("x1 * x2 = ", x1multiplyx2), font=('Times', 16))
 label2.grid(row=4, column=0, columnspan=4, padx=5, pady=5)
 
 button4 = tk.Button(root, text="Count", width=12, height=2, command=lambda: x1orazx2(a ,b, c))
@@ -94,6 +92,6 @@ button4.grid(row=4, column=13, columnspan=4, padx=5, pady=5)
 
 
 
-updateLabel1and2()
+
 
 root.mainloop()
