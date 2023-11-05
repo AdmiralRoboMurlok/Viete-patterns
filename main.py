@@ -2,12 +2,16 @@ import tkinter as tk
 
 root = tk.Tk()
 root.title("Projekt na OOPa")
+root.geometry("760x630")
 root.geometry("820x630")
+
 
 x1addx2 = 0
 x1multiplyx2 = 0
 kwadra = 0
 znak = ""
+OblDelta = 0
+
 
 def PrzyjmijA():
     global a
@@ -30,6 +34,7 @@ def PrzyjmijC():
 def delta(a, b, c):
     global OblDelta
     OblDelta = (b*b)-4*a*c
+    updateLabel4()
 
 def x1orazx2(a, b, c):
     global x1addx2
@@ -48,26 +53,31 @@ def znaki():
     if x1multiplyx2 < 0:
         znak = "Numbers x1, x2 have different signs"
         print("Numbers x1, x2 have different signs")
+        updateLabel5()
     elif x1addx2 > 0:
-        znak = "Numbers are positive"
+        znak = "x1 and x2 are positive"
         print("Numbers are positive")
+        updateLabel5()
     else:
-        znak = "Numbers are negative"
+        znak = "x1 and x2 are negative"
         print("Numbers are negative")
-    updateLabel5()
+        updateLabel5()
+
 
 def updateLabel1and2():
    label1.config(text=("x1 + x2 = ", x1addx2))
    label2.config(text=("x1 * x2 = ", x1multiplyx2))
-   root.after(100, updateLabel1and2)
 
 def updateLabel3():
    label3.config(text=("x1^2 + x2^2 = ", kwadra))
-   root.after(100, updateLabel3)
+
+
+def updateLabel4():
+    label4.config(text=("Delta is equal to ", OblDelta))
 
 def updateLabel5():
-   label5.config(text=znak)
-   root.after(100, updateLabel5)
+    label5.config(text=znak)
+
 
 label1= tk.Label(root, text = "Enter a", font=('Times', 16))
 label1.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
@@ -111,13 +121,20 @@ label3.grid(row=5, column=0, columnspan=4, padx=5, pady=5)
 button5 = tk.Button(root, text="Count", width=12, height=2, command=lambda: sumaKwadratów(a ,b, c))
 button5.grid(row=5, column=12, columnspan=4, padx=5, pady=5)
 
-label4 = tk.Label(root, text="Are the numbers positive or negative", font=('Times', 16))
-label4.grid(row=6, column=1, columnspan=4, padx=5, pady=5)
+
+label4 = tk.Label(root, text=("Delta is equal to ", OblDelta),font=('Times', 16))
+label4.grid(row=6, column=0, columnspan=4, padx=5, pady=5)
+
+button6 = tk.Button(root, text="Count", width=12, height=2, command=lambda: delta(a, b, c))
+button6.grid(row=6, column=13, columnspan=4, padx=5, pady=5)
+
+label6 = tk.Label(root, text="Are the numbers positive or negative", font=('Times', 16))
+label6.grid(row=8, column=1, columnspan=4, padx=5, pady=5)
 
 label5 = tk.Label(root, text=znak, font=('Times', 16))
-label5.grid(row=7, column=1, columnspan=4, padx=5, pady=5)
+label5.grid(row=9, column=1, columnspan=4, padx=5, pady=5)
 
 button6 = tk.Button(root, text="Count", width=12, height=2, command=lambda: znaki())
-button6.grid(row=7, column=12, columnspan=4, padx=5, pady=5)
+button6.grid(row=9, column=12, columnspan=4, padx=5, pady=5)
 
 root.mainloop()
