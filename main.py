@@ -13,19 +13,17 @@ znak = ""
 OblDelta = 0
 
 
-def PrzyjmijA():
+def EnterAll():
     global a
     a = entry1.get()
     a = int(a)
     print(a)
 
-def PrzyjmijB():
     global b
     b = entry2.get()
     b = int(b)
     print(b)
 
-def PrzyjmijC():
     global c
     c = entry3.get()
     c = int(c)
@@ -85,8 +83,8 @@ label1.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
 entry1 = tk.Entry(root, width=40)
 entry1.grid(row=0, column=5, columnspan=6, padx=5, pady=5)
 
-button1 = tk.Button(root, text="Enter", width=12, height=2, command=lambda: PrzyjmijA())
-button1.grid(row=0, column=12, columnspan=4, padx=5, pady=5)
+button1 = tk.Button(root, text="Enter", width=12, height=2, command=lambda: EnterAll())
+button1.grid(row=1, column=12, columnspan=4, padx=5, pady=5)
 
 label2 = tk.Label(root, text = "Enter b", font=('Times', 16))
 label2.grid(row=1, column=0, columnspan=4, padx=5, pady=5)
@@ -94,17 +92,11 @@ label2.grid(row=1, column=0, columnspan=4, padx=5, pady=5)
 entry2 = tk.Entry(root, width=40)
 entry2.grid(row=1, column=5, columnspan=6, padx=5, pady=5)
 
-button2 = tk.Button(root, text="Enter", width=12, height=2, command=lambda: PrzyjmijB())
-button2.grid(row=1, column=12, columnspan=4, padx=5, pady=5)
-
 label3 = tk.Label(root, text = "Enter c", font=('Times', 16))
 label3.grid(row=2, column=0, columnspan=4, padx=5, pady=5)
 
 entry3 = tk.Entry(root, width=40)
 entry3.grid(row=2, column=5, columnspan=6, padx=5, pady=5)
-
-button3 = tk.Button(root, text="Enter", width=12, height=2, command=lambda: PrzyjmijC())
-button3.grid(row=2, column=12, columnspan=4, padx=5, pady=5)
 
 label1=tk.Label(root, text=("x1 + x2 = ", x1addx2), font=('Times', 16))
 label1.grid(row=3, column=0, columnspan=4, padx=5, pady=5)
