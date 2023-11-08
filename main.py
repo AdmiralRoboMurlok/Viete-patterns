@@ -106,20 +106,21 @@ label3.grid(row=2, column=0, columnspan=4, padx=5, pady=5)
 entry3 = tk.Entry(root, width=40)
 entry3.grid(row=2, column=5, columnspan=6, padx=5, pady=5)
 
+
+label4 = tk.Label(root, text=("Delta is equal to ", OblDelta),font=('Times', 16))
+label4.grid(row=4, column=0, columnspan=4, padx=5, pady=5)
+
 label1=tk.Label(root, text=("x1 + x2 = ", x1addx2), font=('Times', 16))
-label1.grid(row=3, column=0, columnspan=4, padx=5, pady=5)
+label1.grid(row=5, column=0, columnspan=4, padx=5, pady=5)
 
 label2=tk.Label(root, text=("x1 * x2 = ", x1multiplyx2), font=('Times', 16))
-label2.grid(row=4, column=0, columnspan=4, padx=5, pady=5)
+label2.grid(row=6, column=0, columnspan=4, padx=5, pady=5)
 
 button4 = tk.Button(root, text="Count", width=12, height=2, command=lambda: CountAll(a, b, c))
 button4.grid(row=4, column=12, columnspan=4, padx=5, pady=5)
 
 label3 = tk.Label(root, text=("x1^2 + x2^2 = ", kwadra), font=('Times', 16))
-label3.grid(row=5, column=0, columnspan=4, padx=5, pady=5)
-
-label4 = tk.Label(root, text=("Delta is equal to ", OblDelta),font=('Times', 16))
-label4.grid(row=6, column=0, columnspan=4, padx=5, pady=5)
+label3.grid(row=7, column=0, columnspan=4, padx=5, pady=5)
 
 label6 = tk.Label(root, text="Are the numbers positive or negative", font=('Times', 16))
 label6.grid(row=8, column=1, columnspan=4, padx=5, pady=5)
