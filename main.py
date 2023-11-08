@@ -12,7 +12,6 @@ kwadra = 0
 znak = ""
 OblDelta = 0
 
-
 def EnterAll():
     global a
     a = entry1.get()
@@ -75,6 +74,15 @@ def updateLabel4():
 
 def updateLabel5():
     label5.config(text=znak)
+
+def CountAll(a, b, c):
+    delta(a, b, c)
+    if OblDelta >=0:
+        x1orazx2(a, b, c)
+        sumaKwadratów(a, b, c)
+        znaki()
+    else:
+        pass
 
 
 label1= tk.Label(root, text = "Enter a", font=('Times', 16))
