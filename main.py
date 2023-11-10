@@ -1,7 +1,7 @@
 import tkinter as tk
 
 root = tk.Tk()
-root.title("Projekt na OOPa")
+root.title("Viete-Paterns")
 root.geometry("760x630")
 root.geometry("820x630")
 
@@ -109,16 +109,16 @@ entry3 = tk.Entry(root, width=40)
 entry3.grid(row=2, column=5, columnspan=6, padx=5, pady=5)
 
 
-labelx1_x2=tk.Label(root, text=("x1 + x2 = ", x1addx2), font=('Times', 16))
+labelx1_x2=tk.Label(root, text="", font=('Times', 16))
 labelx1_x2.grid(row=5, column=0, columnspan=4, padx=5, pady=5)
 
-labelx1x2=tk.Label(root, text=("x1 * x2 = ", x1multiplyx2), font=('Times', 16))
+labelx1x2=tk.Label(root, text="", font=('Times', 16))
 labelx1x2.grid(row=6, column=0, columnspan=4, padx=5, pady=5)
 
 button4 = tk.Button(root, text="Count", width=12, height=2, command=lambda: CountAll(a, b, c))
 button4.grid(row=4, column=12, columnspan=4, padx=5, pady=5)
 
-labelx12x22 = tk.Label(root, text=("x1^2 + x2^2 = ", kwadra), font=('Times', 16))
+labelx12x22 = tk.Label(root, text="", font=('Times', 16))
 labelx12x22.grid(row=7, column=0, columnspan=4, padx=5, pady=5)
 
 labelPosOrNeg = tk.Label(root, text="", font=('Times', 16))
