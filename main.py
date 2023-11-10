@@ -16,17 +16,15 @@ def EnterAll():
     global a
     a = entry1.get()
     a = int(a)
-    print(a)
 
     global b
     b = entry2.get()
-    b = int(b)
-    print(b)
+    b = int(b)   
 
     global c
     c = entry3.get()
     c = int(c)
-    print(c)
+   
 
 def delta(a, b, c):
     global OblDelta
@@ -34,55 +32,45 @@ def delta(a, b, c):
     label4 = tk.Label(root, text=("Delta is equal to ", OblDelta), font=('Times', 16))
     label4.grid(row=4, column=0, columnspan=4, padx=5, pady=5)
 
-def x1orazx2(a, b, c):
-    global x1addx2
-    global x1multiplyx2
-    x1addx2 = (-1 * b) / a
-    x1multiplyx2 = c / a
-    updateLabel1and2()
 
-def sumaKwadratów(a, b, c):
-    global kwadra
-    kwadra = ((b*b) / (a*a)) - ((2 * c) / a)
-    updateLabel3()
+def updateAll():
+    labelx1_x2.config(text=("x1 + x2 = ", x1addx2))
+    labelx1x2.config(text=("x1 * x2 = ", x1multiplyx2))
+    
+    labelx12x22.config(text=("x1^2 + x2^2 = ", kwadra))
 
-def znaki():
-    global znak
-    if x1multiplyx2 < 0:
-        znak = "Numbers x1, x2 have different signs"
-        print("Numbers x1, x2 have different signs")
-        updateLabel5()
-    elif x1addx2 > 0:
-        znak = "x1 and x2 are positive"
-        print("Numbers are positive")
-        updateLabel5()
-    else:
-        znak = "x1 and x2 are negative"
-        print("Numbers are negative")
-        updateLabel5()
-
-
-def updateLabel1and2():
-   labelx1_x2.config(text=("x1 + x2 = ", x1addx2))
-   labelx1x2.config(text=("x1 * x2 = ", x1multiplyx2))
-
-def updateLabel3():
-
-
-   labelx12x22.config(text=("x1^2 + x2^2 = ", kwadra))
-
-
-def updateLabel5():
     labelPosOrNeg.config(text="Are the numbers positive or negative")
 
     labelNumPosOrNeg.config(text=znak)
 
+
+def MathAll(a, b, c):
+    global x1addx2
+    global x1multiplyx2
+    x1addx2 = (-1 * b) / a
+    x1multiplyx2 = c / a
+    
+    global kwadra
+    kwadra = ((b*b) / (a*a)) - ((2 * c) / a)
+    
+    global znak
+    if x1multiplyx2 < 0:
+        znak = "Numbers x1, x2 have different signs"
+        print("Numbers x1, x2 have different signs")
+    elif x1addx2 > 0:
+        znak = "x1 and x2 are positive"
+        print("Numbers are positive")
+    else:
+        znak = "x1 and x2 are negative"
+        print("Numbers are negative")
+
+    updateAll()
+
+
 def CountAll(a, b, c):
     delta(a, b, c)
     if OblDelta >=0:
-        x1orazx2(a, b, c)
-        sumaKwadratów(a, b, c)
-        znaki()
+        MathAll(a, b, c)
     else:
         pass
 
@@ -110,7 +98,7 @@ entry3.grid(row=2, column=5, columnspan=6, padx=5, pady=5)
 
 
 labelx1_x2=tk.Label(root, text="", font=('Times', 16))
-labelx1_x2.grid(row=5, column=0, columnspan=4, padx=5, pady=5)
+labelx1_x2.grid(row=5, column=0, columnspan=5, padx=5, pady=5)
 
 labelx1x2=tk.Label(root, text="", font=('Times', 16))
 labelx1x2.grid(row=6, column=0, columnspan=4, padx=5, pady=5)
